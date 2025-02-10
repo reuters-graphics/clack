@@ -30,7 +30,7 @@ export const note = (message: string, title = '') => {
     )
     .join('\n');
   process.stdout.write(
-    `${color.gray(S_BAR)}\n${color.green(S_STEP_SUBMIT)}  ${color.reset(title)} ${color.gray(
+    `${color.gray(S_BAR)}\n${color.green(S_STEP_SUBMIT)}  ${color.dim(title)} ${color.gray(
       S_BAR_H.repeat(Math.max(len - titleLen - 1, 1)) + S_CORNER_TOP_RIGHT
     )}\n${msg}\n${color.gray(S_CONNECT_LEFT + S_BAR_H.repeat(len + 2) + S_CORNER_BOTTOM_RIGHT)}\n`
   );

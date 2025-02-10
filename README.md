@@ -1,12 +1,16 @@
 # @reuters-graphics/clack
 
-Additional @clack/prompts options.
+Additional prompts and specifically stylesd ones we use with [clack](https://www.clack.cc/) at Reuters Graphics.
 
 ## Installation
 
 ```console
 pnpm install @reuters-graphics/clack
 ```
+
+## Demo
+
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz_small.svg)](https://stackblitz.com/github/reuters-graphics/clack)
 
 ## Prompts
 
@@ -24,4 +28,20 @@ const date = await datetime({
     }
   },
 });
+```
+
+### intro
+
+```typescript
+import { intro } from '@reuters-graphics/clack';
+
+intro('My CLI');
+```
+
+### note
+
+```typescript
+import { note } from '@reuters-graphics/clack';
+
+note('My message', 'title');
 ```

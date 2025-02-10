@@ -9,13 +9,16 @@
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "build": "rollup --config rollup.config.js && publint",
     "lint": "eslint --fix",
     "format": "prettier . --write",
     "changeset:version": "changeset version",
     "changeset:publish": "git add --all && changeset publish",
-    "test": "tsx ./src/_demo.ts"
+    "demo": "tsx ./demo.ts"
   },
   "author": "Jon McClure<jon.r.mcclure@gmail.com>",
   "repository": "github:reuters-graphics/clack",
