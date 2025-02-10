@@ -1,0 +1,11 @@
+{
+  "eslint.validate": ["javascript", "typescript"],
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "npm.packageManager": "pnpm",
+  "emmet.excludeLanguages": ["markdown", "scss"],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "liveshare.launcherClient": "visualStudioCode"
+}
