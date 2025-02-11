@@ -2,4 +2,4 @@
 '@reuters-graphics/clack': patch
 ---
 
-Init
+Initial release.
