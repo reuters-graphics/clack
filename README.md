@@ -1,6 +1,6 @@
 # @reuters-graphics/clack
 
-Additional prompts and specifically stylesd ones we use with [clack](https://www.clack.cc/) at Reuters Graphics.
+Additional prompts and specifically styled ones we use with [clack](https://www.clack.cc/) at Reuters Graphics.
 
 ## Installation
 
@@ -22,8 +22,8 @@ import { datetime } from '@reuters-graphics/clack';
 const date = await datetime({
   message: 'Pick a date and time',
   initialValue: new Date(),
-  validate: (value: Date) => {
-    if (date.getTime() < new Date().getTime()) {
+  validate: (value) => {
+    if (value.getTime() < new Date().getTime()) {
       return 'Date must be in the future';
     }
   },
