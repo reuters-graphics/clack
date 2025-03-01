@@ -45,3 +45,16 @@ import { note } from '@reuters-graphics/clack';
 
 note('My message', 'title');
 ```
+
+### spinner
+
+A spinner that runs for _at least_ a number of milliseconds.
+
+```typescript
+import { spinner } from '@reuters-graphics/clack';
+
+const s = spinner(1000);
+s.start('Building');
+// ...
+await s.end('🏁 Built');
+```
