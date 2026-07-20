@@ -11,18 +11,22 @@ interface DateTimePromptOptions {
 
 type DateTimeField = 'year' | 'month' | 'day' | 'hour' | 'minute';
 
-class DateTimePrompt extends Prompt {
+class DateTimePrompt extends Prompt<Date> {
   private message: string;
   private activeField: DateTimeField = 'year';
   private fields: DateTimeField[] = ['year', 'month', 'day', 'hour', 'minute'];
   public value: Date;
 
   constructor(options: DateTimePromptOptions) {
-    const { message, initialValue = new Date(), ...rest } = options;
+    const { message, initialValue = new Date(), validate } = options;
 
     super(
       {
-        ...rest,
+        // Wrap the caller's validator so the public API can keep a
+        // non-nullable `Date`, while satisfying clack's `Validate<Date>`
+        // signature, which now passes `Date | undefined`.
+        validate:
+          validate ? (value) => validate(value ?? initialValue) : undefined,
         render: () => this.renderPrompt(),
       },
       false

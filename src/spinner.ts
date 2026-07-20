@@ -12,7 +12,7 @@ class Spinner {
     this.startTime = new Date().getTime();
   }
 
-  async stop(msg?: string, code?: number) {
+  async stop(msg?: string, code = 0) {
     const currentTime = new Date().getTime();
     const elapsed = currentTime - (this.startTime ?? 0);
     const remaining = this.minTime - elapsed;
@@ -20,7 +20,17 @@ class Spinner {
     if (remaining > 0) {
       await new Promise((resolve) => setTimeout(resolve, remaining));
     }
-    this.spinner.stop(msg, code);
+
+    // clack v1 replaced the numeric `code` argument to `stop` with
+    // dedicated methods. Map the legacy codes to preserve behavior:
+    // 0 = success, 1 = cancelled, anything else = error.
+    if (code === 0) {
+      this.spinner.stop(msg);
+    } else if (code === 1) {
+      this.spinner.cancel(msg);
+    } else {
+      this.spinner.error(msg);
+    }
   }
 }
 
